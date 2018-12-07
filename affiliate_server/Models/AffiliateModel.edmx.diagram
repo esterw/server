@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8a62b46509c14a33bb0249f462adb130" Name="Diagram1">
+        <EntityTypeShape EntityType="AffiliateDBModel.AffilateRequestWithdraw" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.Affiliate" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateAccount" Width="1.5" PointX="0.75" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateBanner" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateBannerSize" Width="1.5" PointX="3.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateMedia" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliatePixel" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateRequestWithdrawl" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateRevenueReport" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliatesBanner" Width="1.5" PointX="8.25" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliatesCommission" Width="1.5" PointX="5.25" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateSummaryPerSite" Width="1.5" PointX="5.25" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateTicket" Width="1.5" PointX="5.25" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateTicketContent" Width="1.5" PointX="7.5" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateWithdrawlHistory" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.SubAffiliate" Width="1.5" PointX="5.25" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.sysdiagram" Width="1.5" PointX="7.75" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="AffiliateDBModel.FK_Affiliate_AffiliateAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="AffiliateDBModel.FK_AffiliateMedia_Affiliate" ManuallyRouted="false" />
+        <AssociationConnector Association="AffiliateDBModel.FK_AffiliateRequestWithdrawls_Affiliate" ManuallyRouted="false" />
+        <AssociationConnector Association="AffiliateDBModel.FK_AffiliateRevenueReport_Affiliate1" ManuallyRouted="false" />
+        <AssociationConnector Association="AffiliateDBModel.FK_AffiliatesBanners_Affiliate" ManuallyRouted="false" />
+        <AssociationConnector Association="AffiliateDBModel.FK_AffiliatesCommissions_Affiliate" ManuallyRouted="false" />
+        <AssociationConnector Association="AffiliateDBModel.FK_AffiliateSummaryPerSite_Affiliate" ManuallyRouted="false" />
+        <AssociationConnector Association="AffiliateDBModel.FK_AffiliateTicket_Affiliate" ManuallyRouted="false" />
+        <AssociationConnector Association="AffiliateDBModel.FK_SubAffiliates_Affiliate" ManuallyRouted="false" />
+        <AssociationConnector Association="AffiliateDBModel.FK_AffiliateBanner_AffiliateBannerSize" ManuallyRouted="false" />
+        <AssociationConnector Association="AffiliateDBModel.FK_AffiliatesBanners_AffiliateBanner" ManuallyRouted="false" />
+        <AssociationConnector Association="AffiliateDBModel.FK_AffiliateTicketContent_AffiliateTicket" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

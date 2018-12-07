@@ -1,0 +1,1209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AffiliateDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AffilateRequestWithdraw">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="RequestDate" Type="datetime" />
+          <Property Name="AffiliateID" Type="int" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="BalanceAfterPayout" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="RejectedDetails" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Affiliate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Family" Type="nvarchar" MaxLength="50" />
+          <Property Name="AffiliateUserID" Type="int" />
+          <Property Name="Tile" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="RegistrationDate" Type="datetime" />
+          <Property Name="Balance" Type="nvarchar" MaxLength="50" />
+          <Property Name="AffiliateLink" Type="nvarchar" MaxLength="50" />
+          <Property Name="AffiliateLastLogin" Type="datetime" />
+          <Property Name="LastActivityTime" Type="datetime" />
+          <Property Name="Skype" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountID" Type="int" />
+        </EntityType>
+        <EntityType Name="AffiliateAccount">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountDate" Type="datetime" />
+          <Property Name="Transaction" Type="nvarchar" MaxLength="50" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Balance" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="AffiliateBanner">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BannerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BannerPath" Type="nvarchar" MaxLength="50" />
+          <Property Name="Javascript" Type="nvarchar" MaxLength="50" />
+          <Property Name="DirectLink" Type="nvarchar" MaxLength="50" />
+          <Property Name="Htmlcode" Type="nvarchar" MaxLength="50" />
+          <Property Name="BannerType" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="BannerSizeID" Type="int" />
+        </EntityType>
+        <EntityType Name="AffiliateBannerSize">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="BannerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BannerPath" Type="nvarchar" MaxLength="50" />
+          <Property Name="Javascript" Type="nvarchar" MaxLength="50" />
+          <Property Name="HTMLCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Width" Type="nvarchar" MaxLength="50" />
+          <Property Name="Height" Type="nvarchar" MaxLength="50" />
+          <Property Name="DirectLink" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AffiliateMedia">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AffiliateID" Type="int" />
+        </EntityType>
+        <EntityType Name="AffiliatePixel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pixel" Type="nvarchar" MaxLength="50" />
+          <Property Name="PixelTrigger" Type="nvarchar" MaxLength="50" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AffiliateRequestWithdrawls">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="RequestDate" Type="datetime" />
+          <Property Name="AffiliateID" Type="int" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="BalanceAfterPayout" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="RejectedDetails" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AffiliateRevenueReport">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AffiliateDate" Type="datetime" />
+          <Property Name="Visits" Type="int" />
+          <Property Name="Registrations" Type="int" />
+          <Property Name="Deposits" Type="int" />
+          <Property Name="DepositSum" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="TurnOver" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Profit" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Players" Type="int" />
+          <Property Name="AffiliateID" Type="int" />
+        </EntityType>
+        <EntityType Name="AffiliatesBanners">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BannerID" Type="int" />
+          <Property Name="Impressions" Type="int" />
+          <Property Name="Clicks" Type="int" />
+          <Property Name="Lead" Type="int" />
+          <Property Name="Sale" Type="int" />
+          <Property Name="SummaryDate" Type="datetime" />
+          <Property Name="AffiliateID" Type="int" />
+        </EntityType>
+        <EntityType Name="AffiliatesCommissions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Link" Type="nvarchar" MaxLength="50" />
+          <Property Name="CostPerLead" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="RevenueSharePercentages" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="RevenueShareFromAmount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CostPerAcquisition" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="AvailableDateFrom" Type="datetime" />
+          <Property Name="AvailableDateTill" Type="datetime" />
+          <Property Name="AffiliateID" Type="int" />
+          <Property Name="ProductLink" Type="nvarchar" MaxLength="50" />
+          <Property Name="Logo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AffiliateSummaryPerSite">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BannerID" Type="int" />
+          <Property Name="Impressions" Type="int" />
+          <Property Name="Clicks" Type="int" />
+          <Property Name="Lead" Type="int" />
+          <Property Name="Sale" Type="int" />
+          <Property Name="SummaryDate" Type="datetime" />
+          <Property Name="AffiliateID" Type="int" />
+          <Property Name="Product" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AffiliateTicket">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastResponse" Type="datetime" />
+          <Property Name="Actions" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsReadByAffiliate" Type="binary" MaxLength="50" />
+          <Property Name="AffiliateID" Type="int" />
+        </EntityType>
+        <EntityType Name="AffiliateTicketContent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Content" Type="nchar" MaxLength="10" />
+          <Property Name="Subject" Type="nchar" MaxLength="10" />
+          <Property Name="CreatedBy" Type="nchar" MaxLength="10" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="IsActivateOnCreation" Type="bit" />
+          <Property Name="IsPopupUntilApproval" Type="bit" />
+          <Property Name="IsSendByEmail" Type="bit" />
+          <Property Name="IsReadByAffiliate" Type="bit" />
+          <Property Name="TicketID" Type="int" />
+        </EntityType>
+        <EntityType Name="AffiliateWithdrawlHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AmountPayout" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="BalanceAfterPayout" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SubAffiliates">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RegistrationDate" Type="datetime" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="URL" Type="nvarchar" MaxLength="50" />
+          <Property Name="AffiliateID" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'AffiliateDB.dbo.User' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="User">
+          <Property Name="ID" Type="int" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Family" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tile" Type="nvarchar" MaxLength="50" />
+          <Property Name="RegistrationDate" Type="datetime" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <Association Name="FK_Affiliate_AffiliateAccount">
+          <End Role="AffiliateAccount" Type="Self.AffiliateAccount" Multiplicity="0..1" />
+          <End Role="Affiliate" Type="Self.Affiliate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AffiliateAccount">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Affiliate">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AffiliateBanner_AffiliateBannerSize">
+          <End Role="AffiliateBannerSize" Type="Self.AffiliateBannerSize" Multiplicity="0..1" />
+          <End Role="AffiliateBanner" Type="Self.AffiliateBanner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AffiliateBannerSize">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AffiliateBanner">
+              <PropertyRef Name="BannerSizeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AffiliateMedia_Affiliate">
+          <End Role="Affiliate" Type="Self.Affiliate" Multiplicity="0..1" />
+          <End Role="AffiliateMedia" Type="Self.AffiliateMedia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Affiliate">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AffiliateMedia">
+              <PropertyRef Name="AffiliateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AffiliateRequestWithdrawls_Affiliate">
+          <End Role="Affiliate" Type="Self.Affiliate" Multiplicity="0..1" />
+          <End Role="AffiliateRequestWithdrawls" Type="Self.AffiliateRequestWithdrawls" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Affiliate">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AffiliateRequestWithdrawls">
+              <PropertyRef Name="AffiliateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AffiliateRevenueReport_Affiliate1">
+          <End Role="Affiliate" Type="Self.Affiliate" Multiplicity="0..1" />
+          <End Role="AffiliateRevenueReport" Type="Self.AffiliateRevenueReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Affiliate">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AffiliateRevenueReport">
+              <PropertyRef Name="AffiliateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AffiliatesBanners_Affiliate">
+          <End Role="Affiliate" Type="Self.Affiliate" Multiplicity="0..1" />
+          <End Role="AffiliatesBanners" Type="Self.AffiliatesBanners" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Affiliate">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AffiliatesBanners">
+              <PropertyRef Name="AffiliateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AffiliatesBanners_AffiliateBanner">
+          <End Role="AffiliateBanner" Type="Self.AffiliateBanner" Multiplicity="0..1" />
+          <End Role="AffiliatesBanners" Type="Self.AffiliatesBanners" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AffiliateBanner">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AffiliatesBanners">
+              <PropertyRef Name="BannerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AffiliatesCommissions_Affiliate">
+          <End Role="Affiliate" Type="Self.Affiliate" Multiplicity="0..1" />
+          <End Role="AffiliatesCommissions" Type="Self.AffiliatesCommissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Affiliate">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AffiliatesCommissions">
+              <PropertyRef Name="AffiliateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AffiliateSummaryPerSite_Affiliate">
+          <End Role="Affiliate" Type="Self.Affiliate" Multiplicity="0..1" />
+          <End Role="AffiliateSummaryPerSite" Type="Self.AffiliateSummaryPerSite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Affiliate">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AffiliateSummaryPerSite">
+              <PropertyRef Name="AffiliateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AffiliateTicket_Affiliate">
+          <End Role="Affiliate" Type="Self.Affiliate" Multiplicity="0..1" />
+          <End Role="AffiliateTicket" Type="Self.AffiliateTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Affiliate">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AffiliateTicket">
+              <PropertyRef Name="AffiliateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AffiliateTicketContent_AffiliateTicket">
+          <End Role="AffiliateTicket" Type="Self.AffiliateTicket" Multiplicity="0..1" />
+          <End Role="AffiliateTicketContent" Type="Self.AffiliateTicketContent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AffiliateTicket">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AffiliateTicketContent">
+              <PropertyRef Name="TicketID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubAffiliates_Affiliate">
+          <End Role="Affiliate" Type="Self.Affiliate" Multiplicity="0..1" />
+          <End Role="SubAffiliates" Type="Self.SubAffiliates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Affiliate">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SubAffiliates">
+              <PropertyRef Name="AffiliateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AffiliateDBModelStoreContainer">
+          <EntitySet Name="AffilateRequestWithdraw" EntityType="Self.AffilateRequestWithdraw" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Affiliate" EntityType="Self.Affiliate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AffiliateAccount" EntityType="Self.AffiliateAccount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AffiliateBanner" EntityType="Self.AffiliateBanner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AffiliateBannerSize" EntityType="Self.AffiliateBannerSize" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AffiliateMedia" EntityType="Self.AffiliateMedia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AffiliatePixel" EntityType="Self.AffiliatePixel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AffiliateRequestWithdrawls" EntityType="Self.AffiliateRequestWithdrawls" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AffiliateRevenueReport" EntityType="Self.AffiliateRevenueReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AffiliatesBanners" EntityType="Self.AffiliatesBanners" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AffiliatesCommissions" EntityType="Self.AffiliatesCommissions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AffiliateSummaryPerSite" EntityType="Self.AffiliateSummaryPerSite" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AffiliateTicket" EntityType="Self.AffiliateTicket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AffiliateTicketContent" EntityType="Self.AffiliateTicketContent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AffiliateWithdrawlHistory" EntityType="Self.AffiliateWithdrawlHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubAffiliates" EntityType="Self.SubAffiliates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Affiliate_AffiliateAccount" Association="Self.FK_Affiliate_AffiliateAccount">
+            <End Role="AffiliateAccount" EntitySet="AffiliateAccount" />
+            <End Role="Affiliate" EntitySet="Affiliate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AffiliateBanner_AffiliateBannerSize" Association="Self.FK_AffiliateBanner_AffiliateBannerSize">
+            <End Role="AffiliateBannerSize" EntitySet="AffiliateBannerSize" />
+            <End Role="AffiliateBanner" EntitySet="AffiliateBanner" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AffiliateMedia_Affiliate" Association="Self.FK_AffiliateMedia_Affiliate">
+            <End Role="Affiliate" EntitySet="Affiliate" />
+            <End Role="AffiliateMedia" EntitySet="AffiliateMedia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AffiliateRequestWithdrawls_Affiliate" Association="Self.FK_AffiliateRequestWithdrawls_Affiliate">
+            <End Role="Affiliate" EntitySet="Affiliate" />
+            <End Role="AffiliateRequestWithdrawls" EntitySet="AffiliateRequestWithdrawls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AffiliateRevenueReport_Affiliate1" Association="Self.FK_AffiliateRevenueReport_Affiliate1">
+            <End Role="Affiliate" EntitySet="Affiliate" />
+            <End Role="AffiliateRevenueReport" EntitySet="AffiliateRevenueReport" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AffiliatesBanners_Affiliate" Association="Self.FK_AffiliatesBanners_Affiliate">
+            <End Role="Affiliate" EntitySet="Affiliate" />
+            <End Role="AffiliatesBanners" EntitySet="AffiliatesBanners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AffiliatesBanners_AffiliateBanner" Association="Self.FK_AffiliatesBanners_AffiliateBanner">
+            <End Role="AffiliateBanner" EntitySet="AffiliateBanner" />
+            <End Role="AffiliatesBanners" EntitySet="AffiliatesBanners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AffiliatesCommissions_Affiliate" Association="Self.FK_AffiliatesCommissions_Affiliate">
+            <End Role="Affiliate" EntitySet="Affiliate" />
+            <End Role="AffiliatesCommissions" EntitySet="AffiliatesCommissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AffiliateSummaryPerSite_Affiliate" Association="Self.FK_AffiliateSummaryPerSite_Affiliate">
+            <End Role="Affiliate" EntitySet="Affiliate" />
+            <End Role="AffiliateSummaryPerSite" EntitySet="AffiliateSummaryPerSite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AffiliateTicket_Affiliate" Association="Self.FK_AffiliateTicket_Affiliate">
+            <End Role="Affiliate" EntitySet="Affiliate" />
+            <End Role="AffiliateTicket" EntitySet="AffiliateTicket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AffiliateTicketContent_AffiliateTicket" Association="Self.FK_AffiliateTicketContent_AffiliateTicket">
+            <End Role="AffiliateTicket" EntitySet="AffiliateTicket" />
+            <End Role="AffiliateTicketContent" EntitySet="AffiliateTicketContent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubAffiliates_Affiliate" Association="Self.FK_SubAffiliates_Affiliate">
+            <End Role="Affiliate" EntitySet="Affiliate" />
+            <End Role="SubAffiliates" EntitySet="SubAffiliates" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AffiliateDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AffilateRequestWithdraw">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="RequestDate" Type="DateTime" Precision="3" />
+          <Property Name="AffiliateID" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BalanceAfterPayout" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="RejectedDetails" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Affiliate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Family" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AffiliateUserID" Type="Int32" />
+          <Property Name="Tile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RegistrationDate" Type="DateTime" Precision="3" />
+          <Property Name="Balance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AffiliateLink" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AffiliateLastLogin" Type="DateTime" Precision="3" />
+          <Property Name="LastActivityTime" Type="DateTime" Precision="3" />
+          <Property Name="Skype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountID" Type="Int32" />
+          <NavigationProperty Name="AffiliateAccount" Relationship="Self.FK_Affiliate_AffiliateAccount" FromRole="Affiliate" ToRole="AffiliateAccount" />
+          <NavigationProperty Name="AffiliateMedias" Relationship="Self.FK_AffiliateMedia_Affiliate" FromRole="Affiliate" ToRole="AffiliateMedia" />
+          <NavigationProperty Name="AffiliateRequestWithdrawls" Relationship="Self.FK_AffiliateRequestWithdrawls_Affiliate" FromRole="Affiliate" ToRole="AffiliateRequestWithdrawls" />
+          <NavigationProperty Name="AffiliateRevenueReports" Relationship="Self.FK_AffiliateRevenueReport_Affiliate1" FromRole="Affiliate" ToRole="AffiliateRevenueReport" />
+          <NavigationProperty Name="AffiliatesBanners" Relationship="Self.FK_AffiliatesBanners_Affiliate" FromRole="Affiliate" ToRole="AffiliatesBanners" />
+          <NavigationProperty Name="AffiliatesCommissions" Relationship="Self.FK_AffiliatesCommissions_Affiliate" FromRole="Affiliate" ToRole="AffiliatesCommissions" />
+          <NavigationProperty Name="AffiliateSummaryPerSites" Relationship="Self.FK_AffiliateSummaryPerSite_Affiliate" FromRole="Affiliate" ToRole="AffiliateSummaryPerSite" />
+          <NavigationProperty Name="AffiliateTickets" Relationship="Self.FK_AffiliateTicket_Affiliate" FromRole="Affiliate" ToRole="AffiliateTicket" />
+          <NavigationProperty Name="SubAffiliates" Relationship="Self.FK_SubAffiliates_Affiliate" FromRole="Affiliate" ToRole="SubAffiliates" />
+        </EntityType>
+        <EntityType Name="AffiliateAccount">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountDate" Type="DateTime" Precision="3" />
+          <Property Name="Transaction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Balance" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Affiliates" Relationship="Self.FK_Affiliate_AffiliateAccount" FromRole="AffiliateAccount" ToRole="Affiliate" />
+        </EntityType>
+        <EntityType Name="AffiliateBanner">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BannerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BannerPath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Javascript" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DirectLink" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Htmlcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BannerType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="BannerSizeID" Type="Int32" />
+          <NavigationProperty Name="AffiliateBannerSize" Relationship="Self.FK_AffiliateBanner_AffiliateBannerSize" FromRole="AffiliateBanner" ToRole="AffiliateBannerSize" />
+          <NavigationProperty Name="AffiliatesBanners" Relationship="Self.FK_AffiliatesBanners_AffiliateBanner" FromRole="AffiliateBanner" ToRole="AffiliatesBanners" />
+        </EntityType>
+        <EntityType Name="AffiliateBannerSize">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="BannerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BannerPath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Javascript" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HTMLCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Width" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Height" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DirectLink" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AffiliateBanners" Relationship="Self.FK_AffiliateBanner_AffiliateBannerSize" FromRole="AffiliateBannerSize" ToRole="AffiliateBanner" />
+        </EntityType>
+        <EntityType Name="AffiliateMedia">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AffiliateID" Type="Int32" />
+          <NavigationProperty Name="Affiliate" Relationship="Self.FK_AffiliateMedia_Affiliate" FromRole="AffiliateMedia" ToRole="Affiliate" />
+        </EntityType>
+        <EntityType Name="AffiliatePixel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pixel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PixelTrigger" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AffiliateRequestWithdrawl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="RequestDate" Type="DateTime" Precision="3" />
+          <Property Name="AffiliateID" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BalanceAfterPayout" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="RejectedDetails" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Affiliate" Relationship="Self.FK_AffiliateRequestWithdrawls_Affiliate" FromRole="AffiliateRequestWithdrawls" ToRole="Affiliate" />
+        </EntityType>
+        <EntityType Name="AffiliateRevenueReport">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AffiliateDate" Type="DateTime" Precision="3" />
+          <Property Name="Visits" Type="Int32" />
+          <Property Name="Registrations" Type="Int32" />
+          <Property Name="Deposits" Type="Int32" />
+          <Property Name="DepositSum" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TurnOver" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Profit" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Players" Type="Int32" />
+          <Property Name="AffiliateID" Type="Int32" />
+          <NavigationProperty Name="Affiliate" Relationship="Self.FK_AffiliateRevenueReport_Affiliate1" FromRole="AffiliateRevenueReport" ToRole="Affiliate" />
+        </EntityType>
+        <EntityType Name="AffiliatesBanner">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BannerID" Type="Int32" />
+          <Property Name="Impressions" Type="Int32" />
+          <Property Name="Clicks" Type="Int32" />
+          <Property Name="Lead" Type="Int32" />
+          <Property Name="Sale" Type="Int32" />
+          <Property Name="SummaryDate" Type="DateTime" Precision="3" />
+          <Property Name="AffiliateID" Type="Int32" />
+          <NavigationProperty Name="Affiliate" Relationship="Self.FK_AffiliatesBanners_Affiliate" FromRole="AffiliatesBanners" ToRole="Affiliate" />
+          <NavigationProperty Name="AffiliateBanner" Relationship="Self.FK_AffiliatesBanners_AffiliateBanner" FromRole="AffiliatesBanners" ToRole="AffiliateBanner" />
+        </EntityType>
+        <EntityType Name="AffiliatesCommission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CostPerLead" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="RevenueSharePercentages" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="RevenueShareFromAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CostPerAcquisition" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="AvailableDateFrom" Type="DateTime" Precision="3" />
+          <Property Name="AvailableDateTill" Type="DateTime" Precision="3" />
+          <Property Name="AffiliateID" Type="Int32" />
+          <Property Name="ProductLink" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Logo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Affiliate" Relationship="Self.FK_AffiliatesCommissions_Affiliate" FromRole="AffiliatesCommissions" ToRole="Affiliate" />
+        </EntityType>
+        <EntityType Name="AffiliateSummaryPerSite">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BannerID" Type="Int32" />
+          <Property Name="Impressions" Type="Int32" />
+          <Property Name="Clicks" Type="Int32" />
+          <Property Name="Lead" Type="Int32" />
+          <Property Name="Sale" Type="Int32" />
+          <Property Name="SummaryDate" Type="DateTime" Precision="3" />
+          <Property Name="AffiliateID" Type="Int32" />
+          <Property Name="Product" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Affiliate" Relationship="Self.FK_AffiliateSummaryPerSite_Affiliate" FromRole="AffiliateSummaryPerSite" ToRole="Affiliate" />
+        </EntityType>
+        <EntityType Name="AffiliateTicket">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastResponse" Type="DateTime" Precision="3" />
+          <Property Name="Actions" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsReadByAffiliate" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="AffiliateID" Type="Int32" />
+          <NavigationProperty Name="Affiliate" Relationship="Self.FK_AffiliateTicket_Affiliate" FromRole="AffiliateTicket" ToRole="Affiliate" />
+          <NavigationProperty Name="AffiliateTicketContents" Relationship="Self.FK_AffiliateTicketContent_AffiliateTicket" FromRole="AffiliateTicket" ToRole="AffiliateTicketContent" />
+        </EntityType>
+        <EntityType Name="AffiliateTicketContent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Content" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActivateOnCreation" Type="Boolean" />
+          <Property Name="IsPopupUntilApproval" Type="Boolean" />
+          <Property Name="IsSendByEmail" Type="Boolean" />
+          <Property Name="IsReadByAffiliate" Type="Boolean" />
+          <Property Name="TicketID" Type="Int32" />
+          <NavigationProperty Name="AffiliateTicket" Relationship="Self.FK_AffiliateTicketContent_AffiliateTicket" FromRole="AffiliateTicketContent" ToRole="AffiliateTicket" />
+        </EntityType>
+        <EntityType Name="AffiliateWithdrawlHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AmountPayout" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="BalanceAfterPayout" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SubAffiliate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RegistrationDate" Type="DateTime" Precision="3" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="URL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AffiliateID" Type="Int32" />
+          <NavigationProperty Name="Affiliate" Relationship="Self.FK_SubAffiliates_Affiliate" FromRole="SubAffiliates" ToRole="Affiliate" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Affiliate_AffiliateAccount">
+          <End Role="AffiliateAccount" Type="Self.AffiliateAccount" Multiplicity="0..1" />
+          <End Role="Affiliate" Type="Self.Affiliate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AffiliateAccount">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Affiliate">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AffiliateMedia_Affiliate">
+          <End Role="Affiliate" Type="Self.Affiliate" Multiplicity="0..1" />
+          <End Role="AffiliateMedia" Type="Self.AffiliateMedia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Affiliate">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AffiliateMedia">
+              <PropertyRef Name="AffiliateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AffiliateRequestWithdrawls_Affiliate">
+          <End Role="Affiliate" Type="Self.Affiliate" Multiplicity="0..1" />
+          <End Role="AffiliateRequestWithdrawls" Type="Self.AffiliateRequestWithdrawl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Affiliate">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AffiliateRequestWithdrawls">
+              <PropertyRef Name="AffiliateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AffiliateRevenueReport_Affiliate1">
+          <End Role="Affiliate" Type="Self.Affiliate" Multiplicity="0..1" />
+          <End Role="AffiliateRevenueReport" Type="Self.AffiliateRevenueReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Affiliate">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AffiliateRevenueReport">
+              <PropertyRef Name="AffiliateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AffiliatesBanners_Affiliate">
+          <End Role="Affiliate" Type="Self.Affiliate" Multiplicity="0..1" />
+          <End Role="AffiliatesBanners" Type="Self.AffiliatesBanner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Affiliate">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AffiliatesBanners">
+              <PropertyRef Name="AffiliateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AffiliatesCommissions_Affiliate">
+          <End Role="Affiliate" Type="Self.Affiliate" Multiplicity="0..1" />
+          <End Role="AffiliatesCommissions" Type="Self.AffiliatesCommission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Affiliate">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AffiliatesCommissions">
+              <PropertyRef Name="AffiliateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AffiliateSummaryPerSite_Affiliate">
+          <End Role="Affiliate" Type="Self.Affiliate" Multiplicity="0..1" />
+          <End Role="AffiliateSummaryPerSite" Type="Self.AffiliateSummaryPerSite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Affiliate">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AffiliateSummaryPerSite">
+              <PropertyRef Name="AffiliateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AffiliateTicket_Affiliate">
+          <End Role="Affiliate" Type="Self.Affiliate" Multiplicity="0..1" />
+          <End Role="AffiliateTicket" Type="Self.AffiliateTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Affiliate">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AffiliateTicket">
+              <PropertyRef Name="AffiliateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubAffiliates_Affiliate">
+          <End Role="Affiliate" Type="Self.Affiliate" Multiplicity="0..1" />
+          <End Role="SubAffiliates" Type="Self.SubAffiliate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Affiliate">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SubAffiliates">
+              <PropertyRef Name="AffiliateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AffiliateBanner_AffiliateBannerSize">
+          <End Role="AffiliateBannerSize" Type="Self.AffiliateBannerSize" Multiplicity="0..1" />
+          <End Role="AffiliateBanner" Type="Self.AffiliateBanner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AffiliateBannerSize">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AffiliateBanner">
+              <PropertyRef Name="BannerSizeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AffiliatesBanners_AffiliateBanner">
+          <End Role="AffiliateBanner" Type="Self.AffiliateBanner" Multiplicity="0..1" />
+          <End Role="AffiliatesBanners" Type="Self.AffiliatesBanner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AffiliateBanner">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AffiliatesBanners">
+              <PropertyRef Name="BannerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AffiliateTicketContent_AffiliateTicket">
+          <End Role="AffiliateTicket" Type="Self.AffiliateTicket" Multiplicity="0..1" />
+          <End Role="AffiliateTicketContent" Type="Self.AffiliateTicketContent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AffiliateTicket">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AffiliateTicketContent">
+              <PropertyRef Name="TicketID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AffiliateDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AffilateRequestWithdraws" EntityType="Self.AffilateRequestWithdraw" />
+          <EntitySet Name="Affiliates" EntityType="Self.Affiliate" />
+          <EntitySet Name="AffiliateAccounts" EntityType="Self.AffiliateAccount" />
+          <EntitySet Name="AffiliateBanners" EntityType="Self.AffiliateBanner" />
+          <EntitySet Name="AffiliateBannerSizes" EntityType="Self.AffiliateBannerSize" />
+          <EntitySet Name="AffiliateMedias" EntityType="Self.AffiliateMedia" />
+          <EntitySet Name="AffiliatePixels" EntityType="Self.AffiliatePixel" />
+          <EntitySet Name="AffiliateRequestWithdrawls" EntityType="Self.AffiliateRequestWithdrawl" />
+          <EntitySet Name="AffiliateRevenueReports" EntityType="Self.AffiliateRevenueReport" />
+          <EntitySet Name="AffiliatesBanners" EntityType="Self.AffiliatesBanner" />
+          <EntitySet Name="AffiliatesCommissions" EntityType="Self.AffiliatesCommission" />
+          <EntitySet Name="AffiliateSummaryPerSites" EntityType="Self.AffiliateSummaryPerSite" />
+          <EntitySet Name="AffiliateTickets" EntityType="Self.AffiliateTicket" />
+          <EntitySet Name="AffiliateTicketContents" EntityType="Self.AffiliateTicketContent" />
+          <EntitySet Name="AffiliateWithdrawlHistories" EntityType="Self.AffiliateWithdrawlHistory" />
+          <EntitySet Name="SubAffiliates" EntityType="Self.SubAffiliate" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK_Affiliate_AffiliateAccount" Association="Self.FK_Affiliate_AffiliateAccount">
+            <End Role="AffiliateAccount" EntitySet="AffiliateAccounts" />
+            <End Role="Affiliate" EntitySet="Affiliates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AffiliateMedia_Affiliate" Association="Self.FK_AffiliateMedia_Affiliate">
+            <End Role="Affiliate" EntitySet="Affiliates" />
+            <End Role="AffiliateMedia" EntitySet="AffiliateMedias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AffiliateRequestWithdrawls_Affiliate" Association="Self.FK_AffiliateRequestWithdrawls_Affiliate">
+            <End Role="Affiliate" EntitySet="Affiliates" />
+            <End Role="AffiliateRequestWithdrawls" EntitySet="AffiliateRequestWithdrawls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AffiliateRevenueReport_Affiliate1" Association="Self.FK_AffiliateRevenueReport_Affiliate1">
+            <End Role="Affiliate" EntitySet="Affiliates" />
+            <End Role="AffiliateRevenueReport" EntitySet="AffiliateRevenueReports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AffiliatesBanners_Affiliate" Association="Self.FK_AffiliatesBanners_Affiliate">
+            <End Role="Affiliate" EntitySet="Affiliates" />
+            <End Role="AffiliatesBanners" EntitySet="AffiliatesBanners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AffiliatesCommissions_Affiliate" Association="Self.FK_AffiliatesCommissions_Affiliate">
+            <End Role="Affiliate" EntitySet="Affiliates" />
+            <End Role="AffiliatesCommissions" EntitySet="AffiliatesCommissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AffiliateSummaryPerSite_Affiliate" Association="Self.FK_AffiliateSummaryPerSite_Affiliate">
+            <End Role="Affiliate" EntitySet="Affiliates" />
+            <End Role="AffiliateSummaryPerSite" EntitySet="AffiliateSummaryPerSites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AffiliateTicket_Affiliate" Association="Self.FK_AffiliateTicket_Affiliate">
+            <End Role="Affiliate" EntitySet="Affiliates" />
+            <End Role="AffiliateTicket" EntitySet="AffiliateTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubAffiliates_Affiliate" Association="Self.FK_SubAffiliates_Affiliate">
+            <End Role="Affiliate" EntitySet="Affiliates" />
+            <End Role="SubAffiliates" EntitySet="SubAffiliates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AffiliateBanner_AffiliateBannerSize" Association="Self.FK_AffiliateBanner_AffiliateBannerSize">
+            <End Role="AffiliateBannerSize" EntitySet="AffiliateBannerSizes" />
+            <End Role="AffiliateBanner" EntitySet="AffiliateBanners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AffiliatesBanners_AffiliateBanner" Association="Self.FK_AffiliatesBanners_AffiliateBanner">
+            <End Role="AffiliateBanner" EntitySet="AffiliateBanners" />
+            <End Role="AffiliatesBanners" EntitySet="AffiliatesBanners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AffiliateTicketContent_AffiliateTicket" Association="Self.FK_AffiliateTicketContent_AffiliateTicket">
+            <End Role="AffiliateTicket" EntitySet="AffiliateTickets" />
+            <End Role="AffiliateTicketContent" EntitySet="AffiliateTicketContents" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AffiliateDBModelStoreContainer" CdmEntityContainer="AffiliateDBEntities">
+          <EntitySetMapping Name="AffilateRequestWithdraws">
+            <EntityTypeMapping TypeName="AffiliateDBModel.AffilateRequestWithdraw">
+              <MappingFragment StoreEntitySet="AffilateRequestWithdraw">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="AffiliateID" ColumnName="AffiliateID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="BalanceAfterPayout" ColumnName="BalanceAfterPayout" />
+                <ScalarProperty Name="RejectedDetails" ColumnName="RejectedDetails" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Affiliates">
+            <EntityTypeMapping TypeName="AffiliateDBModel.Affiliate">
+              <MappingFragment StoreEntitySet="Affiliate">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Family" ColumnName="Family" />
+                <ScalarProperty Name="AffiliateUserID" ColumnName="AffiliateUserID" />
+                <ScalarProperty Name="Tile" ColumnName="Tile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="AffiliateLink" ColumnName="AffiliateLink" />
+                <ScalarProperty Name="AffiliateLastLogin" ColumnName="AffiliateLastLogin" />
+                <ScalarProperty Name="LastActivityTime" ColumnName="LastActivityTime" />
+                <ScalarProperty Name="Skype" ColumnName="Skype" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AffiliateAccounts">
+            <EntityTypeMapping TypeName="AffiliateDBModel.AffiliateAccount">
+              <MappingFragment StoreEntitySet="AffiliateAccount">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AccountDate" ColumnName="AccountDate" />
+                <ScalarProperty Name="Transaction" ColumnName="Transaction" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AffiliateBanners">
+            <EntityTypeMapping TypeName="AffiliateDBModel.AffiliateBanner">
+              <MappingFragment StoreEntitySet="AffiliateBanner">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BannerName" ColumnName="BannerName" />
+                <ScalarProperty Name="BannerPath" ColumnName="BannerPath" />
+                <ScalarProperty Name="Javascript" ColumnName="Javascript" />
+                <ScalarProperty Name="DirectLink" ColumnName="DirectLink" />
+                <ScalarProperty Name="Htmlcode" ColumnName="Htmlcode" />
+                <ScalarProperty Name="BannerType" ColumnName="BannerType" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="BannerSizeID" ColumnName="BannerSizeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AffiliateBannerSizes">
+            <EntityTypeMapping TypeName="AffiliateDBModel.AffiliateBannerSize">
+              <MappingFragment StoreEntitySet="AffiliateBannerSize">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BannerName" ColumnName="BannerName" />
+                <ScalarProperty Name="BannerPath" ColumnName="BannerPath" />
+                <ScalarProperty Name="Javascript" ColumnName="Javascript" />
+                <ScalarProperty Name="HTMLCode" ColumnName="HTMLCode" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="DirectLink" ColumnName="DirectLink" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AffiliateMedias">
+            <EntityTypeMapping TypeName="AffiliateDBModel.AffiliateMedia">
+              <MappingFragment StoreEntitySet="AffiliateMedia">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AffiliateID" ColumnName="AffiliateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AffiliatePixels">
+            <EntityTypeMapping TypeName="AffiliateDBModel.AffiliatePixel">
+              <MappingFragment StoreEntitySet="AffiliatePixel">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Pixel" ColumnName="Pixel" />
+                <ScalarProperty Name="PixelTrigger" ColumnName="PixelTrigger" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AffiliateRequestWithdrawls">
+            <EntityTypeMapping TypeName="AffiliateDBModel.AffiliateRequestWithdrawl">
+              <MappingFragment StoreEntitySet="AffiliateRequestWithdrawls">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="AffiliateID" ColumnName="AffiliateID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="BalanceAfterPayout" ColumnName="BalanceAfterPayout" />
+                <ScalarProperty Name="RejectedDetails" ColumnName="RejectedDetails" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AffiliateRevenueReports">
+            <EntityTypeMapping TypeName="AffiliateDBModel.AffiliateRevenueReport">
+              <MappingFragment StoreEntitySet="AffiliateRevenueReport">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AffiliateDate" ColumnName="AffiliateDate" />
+                <ScalarProperty Name="Visits" ColumnName="Visits" />
+                <ScalarProperty Name="Registrations" ColumnName="Registrations" />
+                <ScalarProperty Name="Deposits" ColumnName="Deposits" />
+                <ScalarProperty Name="DepositSum" ColumnName="DepositSum" />
+                <ScalarProperty Name="TurnOver" ColumnName="TurnOver" />
+                <ScalarProperty Name="Profit" ColumnName="Profit" />
+                <ScalarProperty Name="Players" ColumnName="Players" />
+                <ScalarProperty Name="AffiliateID" ColumnName="AffiliateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AffiliatesBanners">
+            <EntityTypeMapping TypeName="AffiliateDBModel.AffiliatesBanner">
+              <MappingFragment StoreEntitySet="AffiliatesBanners">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BannerID" ColumnName="BannerID" />
+                <ScalarProperty Name="Impressions" ColumnName="Impressions" />
+                <ScalarProperty Name="Clicks" ColumnName="Clicks" />
+                <ScalarProperty Name="Lead" ColumnName="Lead" />
+                <ScalarProperty Name="Sale" ColumnName="Sale" />
+                <ScalarProperty Name="SummaryDate" ColumnName="SummaryDate" />
+                <ScalarProperty Name="AffiliateID" ColumnName="AffiliateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AffiliatesCommissions">
+            <EntityTypeMapping TypeName="AffiliateDBModel.AffiliatesCommission">
+              <MappingFragment StoreEntitySet="AffiliatesCommissions">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="CostPerLead" ColumnName="CostPerLead" />
+                <ScalarProperty Name="RevenueSharePercentages" ColumnName="RevenueSharePercentages" />
+                <ScalarProperty Name="RevenueShareFromAmount" ColumnName="RevenueShareFromAmount" />
+                <ScalarProperty Name="CostPerAcquisition" ColumnName="CostPerAcquisition" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AvailableDateFrom" ColumnName="AvailableDateFrom" />
+                <ScalarProperty Name="AvailableDateTill" ColumnName="AvailableDateTill" />
+                <ScalarProperty Name="AffiliateID" ColumnName="AffiliateID" />
+                <ScalarProperty Name="ProductLink" ColumnName="ProductLink" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AffiliateSummaryPerSites">
+            <EntityTypeMapping TypeName="AffiliateDBModel.AffiliateSummaryPerSite">
+              <MappingFragment StoreEntitySet="AffiliateSummaryPerSite">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BannerID" ColumnName="BannerID" />
+                <ScalarProperty Name="Impressions" ColumnName="Impressions" />
+                <ScalarProperty Name="Clicks" ColumnName="Clicks" />
+                <ScalarProperty Name="Lead" ColumnName="Lead" />
+                <ScalarProperty Name="Sale" ColumnName="Sale" />
+                <ScalarProperty Name="SummaryDate" ColumnName="SummaryDate" />
+                <ScalarProperty Name="AffiliateID" ColumnName="AffiliateID" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AffiliateTickets">
+            <EntityTypeMapping TypeName="AffiliateDBModel.AffiliateTicket">
+              <MappingFragment StoreEntitySet="AffiliateTicket">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="LastResponse" ColumnName="LastResponse" />
+                <ScalarProperty Name="Actions" ColumnName="Actions" />
+                <ScalarProperty Name="IsReadByAffiliate" ColumnName="IsReadByAffiliate" />
+                <ScalarProperty Name="AffiliateID" ColumnName="AffiliateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AffiliateTicketContents">
+            <EntityTypeMapping TypeName="AffiliateDBModel.AffiliateTicketContent">
+              <MappingFragment StoreEntitySet="AffiliateTicketContent">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsActivateOnCreation" ColumnName="IsActivateOnCreation" />
+                <ScalarProperty Name="IsPopupUntilApproval" ColumnName="IsPopupUntilApproval" />
+                <ScalarProperty Name="IsSendByEmail" ColumnName="IsSendByEmail" />
+                <ScalarProperty Name="IsReadByAffiliate" ColumnName="IsReadByAffiliate" />
+                <ScalarProperty Name="TicketID" ColumnName="TicketID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AffiliateWithdrawlHistories">
+            <EntityTypeMapping TypeName="AffiliateDBModel.AffiliateWithdrawlHistory">
+              <MappingFragment StoreEntitySet="AffiliateWithdrawlHistory">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="AmountPayout" ColumnName="AmountPayout" />
+                <ScalarProperty Name="BalanceAfterPayout" ColumnName="BalanceAfterPayout" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubAffiliates">
+            <EntityTypeMapping TypeName="AffiliateDBModel.SubAffiliate">
+              <MappingFragment StoreEntitySet="SubAffiliates">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="AffiliateID" ColumnName="AffiliateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AffiliateDBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
