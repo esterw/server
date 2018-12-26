@@ -177,6 +177,7 @@
     <Compile Include="Controllers\AffiliateBannersController.cs" />
     <Compile Include="Controllers\AffiliateModel.cs" />
     <Compile Include="Controllers\AffiliatesController.cs" />
+    <Compile Include="Controllers\AffiliateTicketContentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">

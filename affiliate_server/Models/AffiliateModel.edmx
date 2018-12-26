@@ -192,14 +192,14 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Content" Type="nchar" MaxLength="10" />
-          <Property Name="Subject" Type="nchar" MaxLength="10" />
-          <Property Name="CreatedBy" Type="nchar" MaxLength="10" />
+          <Property Name="Content" Type="nvarchar" MaxLength="50" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="CreatedDate" Type="datetime" />
-          <Property Name="IsActivateOnCreation" Type="bit" />
-          <Property Name="IsPopupUntilApproval" Type="bit" />
-          <Property Name="IsSendByEmail" Type="bit" />
-          <Property Name="IsReadByAffiliate" Type="bit" />
+          <Property Name="IsActivateOnCreation" Type="binary" MaxLength="50" />
+          <Property Name="IsPopupUntilApproval" Type="binary" MaxLength="50" />
+          <Property Name="IsSendByEmail" Type="binary" MaxLength="50" />
+          <Property Name="IsReadByAffiliate" Type="binary" MaxLength="50" />
           <Property Name="TicketID" Type="int" />
         </EntityType>
         <EntityType Name="AffiliateWithdrawlHistory">
@@ -678,14 +678,14 @@ warning 6013: The table/view 'AffiliateDB.dbo.User' does not have a primary key 
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Content" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Subject" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="CreatedBy" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="IsActivateOnCreation" Type="Boolean" />
-          <Property Name="IsPopupUntilApproval" Type="Boolean" />
-          <Property Name="IsSendByEmail" Type="Boolean" />
-          <Property Name="IsReadByAffiliate" Type="Boolean" />
+          <Property Name="IsActivateOnCreation" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="IsPopupUntilApproval" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="IsSendByEmail" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="IsReadByAffiliate" Type="Binary" MaxLength="50" FixedLength="true" />
           <Property Name="TicketID" Type="Int32" />
           <NavigationProperty Name="AffiliateTicket" Relationship="Self.FK_AffiliateTicketContent_AffiliateTicket" FromRole="AffiliateTicketContent" ToRole="AffiliateTicket" />
         </EntityType>
