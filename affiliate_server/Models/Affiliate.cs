@@ -17,6 +17,8 @@ namespace affiliate_server.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Affiliate()
         {
+            this.AffiliateBannerClicks = new HashSet<AffiliateBannerClick>();
+            this.AffiliateBannerViews = new HashSet<AffiliateBannerView>();
             this.AffiliateMedias = new HashSet<AffiliateMedia>();
             this.AffiliateRequestWithdrawls = new HashSet<AffiliateRequestWithdrawl>();
             this.AffiliateRevenueReports = new HashSet<AffiliateRevenueReport>();
@@ -52,6 +54,10 @@ namespace affiliate_server.Models
         public Nullable<int> AccountID { get; set; }
     
         public virtual AffiliateAccount AffiliateAccount { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AffiliateBannerClick> AffiliateBannerClicks { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AffiliateBannerView> AffiliateBannerViews { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AffiliateMedia> AffiliateMedias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

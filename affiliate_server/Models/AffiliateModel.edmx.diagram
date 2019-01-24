@@ -4,25 +4,29 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3d0ae1caf53e474d91bcbee37969e907" Name="Diagram1">
-        <EntityTypeShape EntityType="AffiliateDBModel.AffilateRequestWithdraw" Width="1.75" PointX="0.5" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AffiliateDBModel.Affiliate" Width="1.5" PointX="11.5" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateAccount" Width="1.625" PointX="0.5" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateBanner" Width="1.5" PointX="4.375" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateBannerSize" Width="1.875" PointX="2.375" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateMedia" Width="1.5" PointX="8" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="AffiliateDBModel.AffiliatePixel" Width="1.5" PointX="0.5" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateRequestWithdrawl" Width="2.125" PointX="6" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateRevenueReport" Width="2" PointX="6" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="AffiliateDBModel.AffiliatesBanner" Width="1.5" PointX="8.25" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AffiliateDBModel.AffiliatesCommission" Width="1.875" PointX="2.25" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateSummaryPerSite" Width="2" PointX="7.375" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateTicket" Width="1.5" PointX="9.875" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateTicketContent" Width="1.875" PointX="9.5" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateWithdrawlHistory" Width="2.125" PointX="10.75" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="AffiliateDBModel.SubAffiliate" Width="1.5" PointX="4.375" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AffiliateDBModel.sysdiagram" Width="1.5" PointX="1.5" PointY="10.875" IsExpanded="true" />
+      <Diagram DiagramId="1fde555707a94caab08e6fa668170258" Name="Diagram1">
+        <EntityTypeShape EntityType="AffiliateDBModel.AffilateRequestWithdraw" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.Affiliate" Width="1.5" PointX="3" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateAccount" Width="1.5" PointX="0.75" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateBanner" Width="1.5" PointX="6" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateBannerClick" Width="1.5" PointX="8.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateBannerSize" Width="1.5" PointX="3.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateBannerView" Width="1.5" PointX="8.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateMedia" Width="1.5" PointX="5.25" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliatePixel" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateRequestWithdrawl" Width="1.5" PointX="5.25" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateRevenueReport" Width="1.5" PointX="5.25" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliatesBanner" Width="1.5" PointX="8.25" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliatesCommission" Width="1.5" PointX="5.25" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateSummaryPerSite" Width="1.5" PointX="5.25" PointY="31.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateTicket" Width="1.5" PointX="5.25" PointY="35.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateTicketContent" Width="1.5" PointX="7.5" PointY="35.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.AffiliateWithdrawlHistory" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.SubAffiliate" Width="1.5" PointX="5.25" PointY="39.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AffiliateDBModel.sysdiagram" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="AffiliateDBModel.FK_Affiliate_AffiliateAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="AffiliateDBModel.FK_AffiliateBannerClick_Affiliate" ManuallyRouted="false" />
+        <AssociationConnector Association="AffiliateDBModel.FK_AffiliateBannerView_Affiliate" ManuallyRouted="false" />
         <AssociationConnector Association="AffiliateDBModel.FK_AffiliateMedia_Affiliate" ManuallyRouted="false" />
         <AssociationConnector Association="AffiliateDBModel.FK_AffiliateRequestWithdrawls_Affiliate" ManuallyRouted="false" />
         <AssociationConnector Association="AffiliateDBModel.FK_AffiliateRevenueReport_Affiliate1" ManuallyRouted="false" />
@@ -32,6 +36,8 @@
         <AssociationConnector Association="AffiliateDBModel.FK_AffiliateTicket_Affiliate" ManuallyRouted="false" />
         <AssociationConnector Association="AffiliateDBModel.FK_SubAffiliates_Affiliate" ManuallyRouted="false" />
         <AssociationConnector Association="AffiliateDBModel.FK_AffiliateBanner_AffiliateBannerSize" ManuallyRouted="false" />
+        <AssociationConnector Association="AffiliateDBModel.FK_AffiliateBannerClick_AffiliateBanner" ManuallyRouted="false" />
+        <AssociationConnector Association="AffiliateDBModel.FK_AffiliateBannerView_AffiliateBanner" ManuallyRouted="false" />
         <AssociationConnector Association="AffiliateDBModel.FK_AffiliatesBanners_AffiliateBanner" ManuallyRouted="false" />
         <AssociationConnector Association="AffiliateDBModel.FK_AffiliateTicketContent_AffiliateTicket" ManuallyRouted="false" />
       </Diagram>
