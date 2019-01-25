@@ -5,12 +5,14 @@ using System.Web;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using affiliate_server.Models;
+using System.Web.Http.Cors;
 
 namespace Affiliates.Server
 {
     /// <summary>
     /// Summary description for Click
     /// </summary>
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class Click : IHttpHandler
     {
 

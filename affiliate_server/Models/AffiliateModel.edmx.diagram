@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1fde555707a94caab08e6fa668170258" Name="Diagram1">
+      <Diagram DiagramId="d9be87ab319f452bb43e4d2072f69383" Name="Diagram1">
         <EntityTypeShape EntityType="AffiliateDBModel.AffilateRequestWithdraw" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AffiliateDBModel.Affiliate" Width="1.5" PointX="3" PointY="15.625" IsExpanded="true" />
         <EntityTypeShape EntityType="AffiliateDBModel.AffiliateAccount" Width="1.5" PointX="0.75" PointY="18.375" IsExpanded="true" />

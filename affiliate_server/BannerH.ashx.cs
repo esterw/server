@@ -7,12 +7,14 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Http.Cors;
 
 namespace Affiliates.Server
 {
     /// <summary>
     /// Summary description for BannerH
     /// </summary>
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class BannerH : IHttpHandler
     {
         private AffiliateDBEntities db = new AffiliateDBEntities();
@@ -64,9 +66,12 @@ namespace Affiliates.Server
                     AffiliateBannerView abv = new AffiliateBannerView();
                     abv.AffiliateID = affID;
                     abv.BannerID = bannrID;
-                    // abv.UrlReferrer = context.Request.UrlReferrer.OriginalString;
+                    if (context.Request.UrlReferrer != null)
+                        abv.UrlReferrer = context.Request.UrlReferrer.OriginalString;
+                    else
+                        abv.UrlReferrer = "Direct Link";
                     abv.ViewDate = new DateTime();
-                    //db.AffiliateBannerViews.Add(abv);
+                    db.AffiliateBannerViews.Add(abv);
 
                     try
                     {
