@@ -180,6 +180,7 @@
     <Compile Include="Click.ashx.cs">
       <DependentUpon>Click.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AffiliateAccountsController.cs" />
     <Compile Include="Controllers\AffiliateBannersController.cs" />
     <Compile Include="Controllers\AffiliateModel.cs" />
     <Compile Include="Controllers\AffiliatesController.cs" />
@@ -262,6 +263,8 @@
       <DependentUpon>AffiliateModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\TokenRequestViewModel.cs" />
+    <Compile Include="ViewModel\TokenResponseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\1.JPG" />
@@ -321,7 +324,9 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -338,6 +343,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\BaseApi\" />
+    <Folder Include="Views\testBeta\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

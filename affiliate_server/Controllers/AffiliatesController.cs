@@ -37,6 +37,19 @@ namespace affiliate_server.Controllers
             return Ok(affiliate);
         }
 
+        // GET: api/Affiliates?email=""&password=""
+        [ResponseType(typeof(Affiliate))]
+        public IHttpActionResult LoginAffiliate(string email, string password)
+        {
+            Affiliate affiliate = db.Affiliates.Where(X => (X.Email == email && X.Password == password)).FirstOrDefault();
+            if (affiliate == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(affiliate);
+        }
+
         // PUT: api/Affiliates/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutAffiliate(int id, Affiliate affiliate)
