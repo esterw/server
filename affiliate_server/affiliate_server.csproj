@@ -180,11 +180,13 @@
     <Compile Include="Click.ashx.cs">
       <DependentUpon>Click.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AffilateRequestWithdrawsController.cs" />
     <Compile Include="Controllers\AffiliateAccountsController.cs" />
     <Compile Include="Controllers\AffiliateBannersController.cs" />
-    <Compile Include="Controllers\AffiliateModel.cs" />
+    <Compile Include="Controllers\AffiliatesBannersController.cs" />
     <Compile Include="Controllers\AffiliatesController.cs" />
     <Compile Include="Controllers\AffiliateTicketContentsController.cs" />
+    <Compile Include="Controllers\AffiliateTicketsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -197,6 +199,9 @@
       <DependentUpon>AffiliateModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AffiliateAccount.cs">
+      <DependentUpon>AffiliateModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AffiliateBankAccount.cs">
       <DependentUpon>AffiliateModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AffiliateBanner.cs">

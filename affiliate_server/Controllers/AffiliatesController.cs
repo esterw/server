@@ -93,7 +93,7 @@ namespace affiliate_server.Controllers
             {
                 return BadRequest(ModelState);
             }
-
+            affiliate.Balance = 0;
             db.Affiliates.Add(affiliate);
 
             try

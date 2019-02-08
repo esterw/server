@@ -43,7 +43,8 @@ namespace Affiliates.Server
                         ab.Impressions += 1;
                        ab.SummaryDate = DateTime.Now;
                         db.Entry(ab).State = EntityState.Modified;
-                  
+
+                        db.SaveChanges();
 
 
                     }
@@ -60,7 +61,6 @@ namespace Affiliates.Server
                         ab.Impressions = 1;
                        // ab.SummaryDate = DateTime.Now;
                         db.AffiliatesBanners.Add(ab);
-                    
 
                     }
                     AffiliateBannerView abv = new AffiliateBannerView();

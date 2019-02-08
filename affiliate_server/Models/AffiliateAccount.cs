@@ -14,19 +14,10 @@ namespace affiliate_server.Models
     
     public partial class AffiliateAccount
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AffiliateAccount()
-        {
-            this.Affiliates = new HashSet<Affiliate>();
-        }
-    
         public int ID { get; set; }
         public Nullable<System.DateTime> AccountDate { get; set; }
         public string Transaction { get; set; }
         public Nullable<decimal> Amount { get; set; }
         public Nullable<decimal> Balance { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Affiliate> Affiliates { get; set; }
     }
 }

@@ -38,7 +38,7 @@
           <Property Name="Tile" Type="nvarchar" MaxLength="50" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
           <Property Name="RegistrationDate" Type="datetime" />
-          <Property Name="Balance" Type="nvarchar" MaxLength="50" />
+          <Property Name="Balance" Type="decimal" Precision="18" Scale="2" />
           <Property Name="AffiliateLink" Type="nvarchar" MaxLength="50" />
           <Property Name="AffiliateLastLogin" Type="datetime" />
           <Property Name="LastActivityTime" Type="datetime" />
@@ -54,6 +54,27 @@
           <Property Name="Transaction" Type="nvarchar" MaxLength="50" />
           <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
           <Property Name="Balance" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="AffiliateBankAccount">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BankAccount" Type="nvarchar" MaxLength="50" />
+          <Property Name="BankBranch" Type="nvarchar" MaxLength="50" />
+          <Property Name="BankEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="IBAN" Type="nvarchar" MaxLength="50" />
+          <Property Name="Swift" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="ComissionPlan" Type="nvarchar" MaxLength="50" />
+          <Property Name="MinimalPayout" Type="nvarchar" MaxLength="50" />
+          <Property Name="PayoutCurrency" Type="nvarchar" MaxLength="50" />
+          <Property Name="NetlleterEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="SkrillEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaymentType" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="AffiliateBanner">
           <Key>
@@ -124,7 +145,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RequestDate" Type="datetime" />
           <Property Name="AffiliateID" Type="int" />
           <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
@@ -204,7 +225,7 @@
           <Property Name="Subject" Type="nvarchar" MaxLength="50" />
           <Property Name="LastResponse" Type="datetime" />
           <Property Name="Actions" Type="nvarchar" MaxLength="50" />
-          <Property Name="IsReadByAffiliate" Type="binary" MaxLength="50" />
+          <Property Name="IsReadByAffiliate" Type="bit" />
           <Property Name="AffiliateID" Type="int" />
         </EntityType>
         <EntityType Name="AffiliateTicketContent">
@@ -216,10 +237,10 @@
           <Property Name="Subject" Type="nvarchar" MaxLength="50" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="CreatedDate" Type="datetime" />
-          <Property Name="IsActivateOnCreation" Type="binary" MaxLength="50" />
-          <Property Name="IsPopupUntilApproval" Type="binary" MaxLength="50" />
-          <Property Name="IsSendByEmail" Type="binary" MaxLength="50" />
-          <Property Name="IsReadByAffiliate" Type="binary" MaxLength="50" />
+          <Property Name="IsActivateOnCreation" Type="bit" />
+          <Property Name="IsPopupUntilApproval" Type="bit" />
+          <Property Name="IsSendByEmail" Type="bit" />
+          <Property Name="IsReadByAffiliate" Type="bit" />
           <Property Name="TicketID" Type="int" />
         </EntityType>
         <EntityType Name="AffiliateWithdrawlHistory">
@@ -273,11 +294,11 @@ warning 6013: The table/view 'AffiliateDB.dbo.User' does not have a primary key 
           <Property Name="ZipCode" Type="nvarchar" MaxLength="50" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
         </EntityType>-->
-        <Association Name="FK_Affiliate_AffiliateAccount">
-          <End Role="AffiliateAccount" Type="Self.AffiliateAccount" Multiplicity="0..1" />
+        <Association Name="FK_Affiliate_AffiliateBankAccount">
+          <End Role="AffiliateBankAccount" Type="Self.AffiliateBankAccount" Multiplicity="0..1" />
           <End Role="Affiliate" Type="Self.Affiliate" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="AffiliateAccount">
+            <Principal Role="AffiliateBankAccount">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Affiliate">
@@ -469,6 +490,7 @@ warning 6013: The table/view 'AffiliateDB.dbo.User' does not have a primary key 
           <EntitySet Name="AffilateRequestWithdraw" EntityType="Self.AffilateRequestWithdraw" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Affiliate" EntityType="Self.Affiliate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AffiliateAccount" EntityType="Self.AffiliateAccount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AffiliateBankAccount" EntityType="Self.AffiliateBankAccount" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AffiliateBanner" EntityType="Self.AffiliateBanner" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AffiliateBannerClick" EntityType="Self.AffiliateBannerClick" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AffiliateBannerSize" EntityType="Self.AffiliateBannerSize" Schema="dbo" store:Type="Tables" />
@@ -485,8 +507,8 @@ warning 6013: The table/view 'AffiliateDB.dbo.User' does not have a primary key 
           <EntitySet Name="AffiliateWithdrawlHistory" EntityType="Self.AffiliateWithdrawlHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SubAffiliates" EntityType="Self.SubAffiliates" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Affiliate_AffiliateAccount" Association="Self.FK_Affiliate_AffiliateAccount">
-            <End Role="AffiliateAccount" EntitySet="AffiliateAccount" />
+          <AssociationSet Name="FK_Affiliate_AffiliateBankAccount" Association="Self.FK_Affiliate_AffiliateBankAccount">
+            <End Role="AffiliateBankAccount" EntitySet="AffiliateBankAccount" />
             <End Role="Affiliate" EntitySet="Affiliate" />
           </AssociationSet>
           <AssociationSet Name="FK_AffiliateBanner_AffiliateBannerSize" Association="Self.FK_AffiliateBanner_AffiliateBannerSize">
@@ -588,13 +610,13 @@ warning 6013: The table/view 'AffiliateDB.dbo.User' does not have a primary key 
           <Property Name="Tile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="RegistrationDate" Type="DateTime" Precision="3" />
-          <Property Name="Balance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Balance" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="AffiliateLink" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="AffiliateLastLogin" Type="DateTime" Precision="3" />
           <Property Name="LastActivityTime" Type="DateTime" Precision="3" />
           <Property Name="Skype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="AccountID" Type="Int32" />
-          <NavigationProperty Name="AffiliateAccount" Relationship="Self.FK_Affiliate_AffiliateAccount" FromRole="Affiliate" ToRole="AffiliateAccount" />
+          <NavigationProperty Name="AffiliateBankAccount" Relationship="Self.FK_Affiliate_AffiliateBankAccount" FromRole="Affiliate" ToRole="AffiliateBankAccount" />
           <NavigationProperty Name="AffiliateBannerClicks" Relationship="Self.FK_AffiliateBannerClick_Affiliate" FromRole="Affiliate" ToRole="AffiliateBannerClick" />
           <NavigationProperty Name="AffiliateBannerViews" Relationship="Self.FK_AffiliateBannerView_Affiliate" FromRole="Affiliate" ToRole="AffiliateBannerView" />
           <NavigationProperty Name="AffiliateMedias" Relationship="Self.FK_AffiliateMedia_Affiliate" FromRole="Affiliate" ToRole="AffiliateMedia" />
@@ -615,7 +637,28 @@ warning 6013: The table/view 'AffiliateDB.dbo.User' does not have a primary key 
           <Property Name="Transaction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="Balance" Type="Decimal" Precision="18" Scale="0" />
-          <NavigationProperty Name="Affiliates" Relationship="Self.FK_Affiliate_AffiliateAccount" FromRole="AffiliateAccount" ToRole="Affiliate" />
+        </EntityType>
+        <EntityType Name="AffiliateBankAccount">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankBranch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IBAN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Swift" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ComissionPlan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MinimalPayout" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PayoutCurrency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NetlleterEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SkrillEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Affiliates" Relationship="Self.FK_Affiliate_AffiliateBankAccount" FromRole="AffiliateBankAccount" ToRole="Affiliate" />
         </EntityType>
         <EntityType Name="AffiliateBanner">
           <Key>
@@ -696,7 +739,7 @@ warning 6013: The table/view 'AffiliateDB.dbo.User' does not have a primary key 
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="RequestDate" Type="DateTime" Precision="3" />
           <Property Name="AffiliateID" Type="Int32" />
           <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
@@ -782,7 +825,7 @@ warning 6013: The table/view 'AffiliateDB.dbo.User' does not have a primary key 
           <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LastResponse" Type="DateTime" Precision="3" />
           <Property Name="Actions" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IsReadByAffiliate" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="IsReadByAffiliate" Type="Boolean" />
           <Property Name="AffiliateID" Type="Int32" />
           <NavigationProperty Name="Affiliate" Relationship="Self.FK_AffiliateTicket_Affiliate" FromRole="AffiliateTicket" ToRole="Affiliate" />
           <NavigationProperty Name="AffiliateTicketContents" Relationship="Self.FK_AffiliateTicketContent_AffiliateTicket" FromRole="AffiliateTicket" ToRole="AffiliateTicketContent" />
@@ -796,10 +839,10 @@ warning 6013: The table/view 'AffiliateDB.dbo.User' does not have a primary key 
           <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="IsActivateOnCreation" Type="Binary" MaxLength="50" FixedLength="true" />
-          <Property Name="IsPopupUntilApproval" Type="Binary" MaxLength="50" FixedLength="true" />
-          <Property Name="IsSendByEmail" Type="Binary" MaxLength="50" FixedLength="true" />
-          <Property Name="IsReadByAffiliate" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="IsActivateOnCreation" Type="Boolean" />
+          <Property Name="IsPopupUntilApproval" Type="Boolean" />
+          <Property Name="IsSendByEmail" Type="Boolean" />
+          <Property Name="IsReadByAffiliate" Type="Boolean" />
           <Property Name="TicketID" Type="Int32" />
           <NavigationProperty Name="AffiliateTicket" Relationship="Self.FK_AffiliateTicketContent_AffiliateTicket" FromRole="AffiliateTicketContent" ToRole="AffiliateTicket" />
         </EntityType>
@@ -835,11 +878,11 @@ warning 6013: The table/view 'AffiliateDB.dbo.User' does not have a primary key 
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <Association Name="FK_Affiliate_AffiliateAccount">
-          <End Role="AffiliateAccount" Type="Self.AffiliateAccount" Multiplicity="0..1" />
+        <Association Name="FK_Affiliate_AffiliateBankAccount">
+          <End Role="AffiliateBankAccount" Type="Self.AffiliateBankAccount" Multiplicity="0..1" />
           <End Role="Affiliate" Type="Self.Affiliate" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="AffiliateAccount">
+            <Principal Role="AffiliateBankAccount">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Affiliate">
@@ -1031,6 +1074,7 @@ warning 6013: The table/view 'AffiliateDB.dbo.User' does not have a primary key 
           <EntitySet Name="AffilateRequestWithdraws" EntityType="Self.AffilateRequestWithdraw" />
           <EntitySet Name="Affiliates" EntityType="Self.Affiliate" />
           <EntitySet Name="AffiliateAccounts" EntityType="Self.AffiliateAccount" />
+          <EntitySet Name="AffiliateBankAccounts" EntityType="Self.AffiliateBankAccount" />
           <EntitySet Name="AffiliateBanners" EntityType="Self.AffiliateBanner" />
           <EntitySet Name="AffiliateBannerClicks" EntityType="Self.AffiliateBannerClick" />
           <EntitySet Name="AffiliateBannerSizes" EntityType="Self.AffiliateBannerSize" />
@@ -1047,8 +1091,8 @@ warning 6013: The table/view 'AffiliateDB.dbo.User' does not have a primary key 
           <EntitySet Name="AffiliateWithdrawlHistories" EntityType="Self.AffiliateWithdrawlHistory" />
           <EntitySet Name="SubAffiliates" EntityType="Self.SubAffiliate" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <AssociationSet Name="FK_Affiliate_AffiliateAccount" Association="Self.FK_Affiliate_AffiliateAccount">
-            <End Role="AffiliateAccount" EntitySet="AffiliateAccounts" />
+          <AssociationSet Name="FK_Affiliate_AffiliateBankAccount" Association="Self.FK_Affiliate_AffiliateBankAccount">
+            <End Role="AffiliateBankAccount" EntitySet="AffiliateBankAccounts" />
             <End Role="Affiliate" EntitySet="Affiliates" />
           </AssociationSet>
           <AssociationSet Name="FK_AffiliateBannerClick_Affiliate" Association="Self.FK_AffiliateBannerClick_Affiliate">
@@ -1168,6 +1212,28 @@ warning 6013: The table/view 'AffiliateDB.dbo.User' does not have a primary key 
                 <ScalarProperty Name="Transaction" ColumnName="Transaction" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="Balance" ColumnName="Balance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AffiliateBankAccounts">
+            <EntityTypeMapping TypeName="AffiliateDBModel.AffiliateBankAccount">
+              <MappingFragment StoreEntitySet="AffiliateBankAccount">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="BankAccount" ColumnName="BankAccount" />
+                <ScalarProperty Name="BankBranch" ColumnName="BankBranch" />
+                <ScalarProperty Name="BankEmail" ColumnName="BankEmail" />
+                <ScalarProperty Name="IBAN" ColumnName="IBAN" />
+                <ScalarProperty Name="Swift" ColumnName="Swift" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="ComissionPlan" ColumnName="ComissionPlan" />
+                <ScalarProperty Name="MinimalPayout" ColumnName="MinimalPayout" />
+                <ScalarProperty Name="PayoutCurrency" ColumnName="PayoutCurrency" />
+                <ScalarProperty Name="NetlleterEmail" ColumnName="NetlleterEmail" />
+                <ScalarProperty Name="SkrillEmail" ColumnName="SkrillEmail" />
+                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

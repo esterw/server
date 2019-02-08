@@ -46,14 +46,14 @@ namespace affiliate_server.Models
         public string Tile { get; set; }
         public string Email { get; set; }
         public Nullable<System.DateTime> RegistrationDate { get; set; }
-        public string Balance { get; set; }
+        public Nullable<decimal> Balance { get; set; }
         public string AffiliateLink { get; set; }
         public Nullable<System.DateTime> AffiliateLastLogin { get; set; }
         public Nullable<System.DateTime> LastActivityTime { get; set; }
         public string Skype { get; set; }
         public Nullable<int> AccountID { get; set; }
     
-        public virtual AffiliateAccount AffiliateAccount { get; set; }
+        public virtual AffiliateBankAccount AffiliateBankAccount { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AffiliateBannerClick> AffiliateBannerClicks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

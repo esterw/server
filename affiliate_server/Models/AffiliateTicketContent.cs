@@ -19,10 +19,10 @@ namespace affiliate_server.Models
         public string Subject { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
-        public byte[] IsActivateOnCreation { get; set; }
-        public byte[] IsPopupUntilApproval { get; set; }
-        public byte[] IsSendByEmail { get; set; }
-        public byte[] IsReadByAffiliate { get; set; }
+        public Nullable<bool> IsActivateOnCreation { get; set; }
+        public Nullable<bool> IsPopupUntilApproval { get; set; }
+        public Nullable<bool> IsSendByEmail { get; set; }
+        public Nullable<bool> IsReadByAffiliate { get; set; }
         public Nullable<int> TicketID { get; set; }
     
         public virtual AffiliateTicket AffiliateTicket { get; set; }

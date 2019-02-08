@@ -28,6 +28,7 @@ namespace affiliate_server.Models
         public virtual DbSet<AffilateRequestWithdraw> AffilateRequestWithdraws { get; set; }
         public virtual DbSet<Affiliate> Affiliates { get; set; }
         public virtual DbSet<AffiliateAccount> AffiliateAccounts { get; set; }
+        public virtual DbSet<AffiliateBankAccount> AffiliateBankAccounts { get; set; }
         public virtual DbSet<AffiliateBanner> AffiliateBanners { get; set; }
         public virtual DbSet<AffiliateBannerClick> AffiliateBannerClicks { get; set; }
         public virtual DbSet<AffiliateBannerSize> AffiliateBannerSizes { get; set; }

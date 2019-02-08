@@ -27,7 +27,7 @@ namespace affiliate_server.Models
         public string Subject { get; set; }
         public Nullable<System.DateTime> LastResponse { get; set; }
         public string Actions { get; set; }
-        public byte[] IsReadByAffiliate { get; set; }
+        public Nullable<bool> IsReadByAffiliate { get; set; }
         public Nullable<int> AffiliateID { get; set; }
     
         public virtual Affiliate Affiliate { get; set; }
