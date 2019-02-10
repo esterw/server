@@ -77,17 +77,14 @@ namespace affiliate_server.Controllers
         [ResponseType(typeof(AffiliateTicketContent))]
         public IHttpActionResult PostAffiliateTicketContent(AffiliateTicketContent affiliateTicketContent)
         {
-
-            //AffiliateTicketContent aff = new AffiliateTicketContent();
-            //aff.TicketID = affiliateTicketContent.TicketID;
-            //aff.Subject= affiliateTicketContent.Subject;
-            //aff.Content = affiliateTicketContent.Content;
-            //AffiliateTicketContent affiliateTicketContent = new AffiliateTicketContent();
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
+            AffiliateTicket at = db.AffiliateTickets.Where(item => item.ID == affiliateTicketContent.TicketID).FirstOrDefault();
+            at.LastResponse = DateTime.Now;
+            db.Entry(at).State = EntityState.Modified;
             db.AffiliateTicketContents.Add(affiliateTicketContent);
             db.SaveChanges();
 

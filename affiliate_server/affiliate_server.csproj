@@ -284,6 +284,9 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\Anonymous_Flag.svg.png" />
+    <Content Include="Images\IMG_9452.JPG" />
+    <Content Include="Images\IMG_9863.JPG" />
     <Content Include="Models\AffiliateModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AffiliateModel.edmx</DependentUpon>

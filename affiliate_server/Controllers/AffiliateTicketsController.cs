@@ -85,14 +85,6 @@ namespace affiliate_server.Controllers
 
             db.SaveChanges();
 
-            AffiliateTicketContent afCont = new AffiliateTicketContent();
-            afCont.TicketID = affiliateTicket.ID;
-            afCont.Subject = affiliateTicket.Subject;
-            afCont.CreatedDate = affiliateTicket.CreatedDate ;
-            afCont.CreatedBy = affiliateTicket.CreatedBy;
-            db.AffiliateTicketContents.Add(afCont);
-            db.SaveChanges();
-
             return CreatedAtRoute("DefaultApi", new { id = affiliateTicket.ID }, affiliateTicket);
         }
 
