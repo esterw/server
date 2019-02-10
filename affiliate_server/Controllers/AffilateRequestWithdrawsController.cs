@@ -13,7 +13,7 @@ using affiliate_server.Models;
 
 namespace affiliate_server.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+     
     public class AffilateRequestWithdrawsController : ApiController
     {
         private AffiliateDBEntities db = new AffiliateDBEntities();
@@ -80,14 +80,8 @@ namespace affiliate_server.Controllers
             {
                 return BadRequest(ModelState);
             }
-            
-            AffilateRequestWithdraw af = new AffilateRequestWithdraw();
 
-            af.AffiliateID = affilateRequestWithdraw.AffiliateID;
-            af.Amount = affilateRequestWithdraw.Amount;
-            af.RequestDate = affilateRequestWithdraw.RequestDate;
-            af.Status = affilateRequestWithdraw.Status;
-            db.AffilateRequestWithdraws.Add(af);
+            db.AffilateRequestWithdraws.Add(affilateRequestWithdraw);
 
             try
             {

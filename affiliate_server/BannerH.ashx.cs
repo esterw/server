@@ -14,7 +14,7 @@ namespace Affiliates.Server
     /// <summary>
     /// Summary description for BannerH
     /// </summary>
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+     
     public class BannerH : IHttpHandler
     {
         private AffiliateDBEntities db = new AffiliateDBEntities();

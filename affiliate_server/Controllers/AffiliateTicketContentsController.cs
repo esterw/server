@@ -14,7 +14,7 @@ using Newtonsoft.Json.Linq;
 
 namespace affiliate_server.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+     
     public class AffiliateTicketContentsController : ApiController
     {
         private AffiliateDBEntities db = new AffiliateDBEntities();

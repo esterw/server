@@ -12,7 +12,7 @@ namespace Affiliates.Server
     /// <summary>
     /// Summary description for Click
     /// </summary>
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+     
     public class Click : IHttpHandler
     {
 
@@ -29,6 +29,8 @@ namespace Affiliates.Server
             {
                 int affID = Convert.ToInt32(affiliateID);
                 int bannrID = Convert.ToInt32(bannerID);
+                Affiliate aff = db.Affiliates.Where(x => x.ID == affID).FirstOrDefault();
+
                 try
                 {
                     AffiliatesBanner ab = db.AffiliatesBanners.Where(x => (x.AffiliateID == affID) && (x.BannerID == bannrID)).FirstOrDefault<AffiliatesBanner>();
@@ -57,6 +59,10 @@ namespace Affiliates.Server
                         arr.Visits = 1;
                     else
                         arr.Visits = arr.Visits + 1;
+                    if (arr.Profit == null)
+                        arr.Profit = aff.AffiliatesCommissions.FirstOrDefault().CostPerLead;
+                    else
+                        arr.Profit = arr.Profit + aff.AffiliatesCommissions.FirstOrDefault().CostPerLead; ;
                     db.Entry(arr).State = EntityState.Modified;
 
                 }
@@ -66,6 +72,7 @@ namespace Affiliates.Server
                     arr.AffiliateID = affID;
                     arr.AffiliateDate = DateTime.Now.Date;
                     arr.Visits = 1;
+                    arr.Profit = aff.AffiliatesCommissions.FirstOrDefault().CostPerLead;
                     db.AffiliateRevenueReports.Add(arr);
                 }
                 AffiliateBannerClick abc = new AffiliateBannerClick();
@@ -79,6 +86,20 @@ namespace Affiliates.Server
                 db.AffiliateBannerClicks.Add(abc);
                 try
                 {
+                    if(aff.AffiliatesCommissions.FirstOrDefault().CostPerLead != null)
+                    {
+                        aff.Balance += aff.AffiliatesCommissions.FirstOrDefault().CostPerLead;
+
+                    } else if (aff.AffiliatesCommissions.FirstOrDefault().CostPerAcquisition != null)
+                    {
+
+                    }
+                    else if (aff.AffiliatesCommissions.FirstOrDefault().RevenueSharePercentages != null)
+                    {
+
+                    }
+                    db.Entry(aff).State = EntityState.Modified;
+
                     db.SaveChanges();
                 }
                 catch (DbUpdateConcurrencyException)

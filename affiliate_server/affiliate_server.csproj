@@ -182,6 +182,7 @@
     </Compile>
     <Compile Include="Controllers\AffilateRequestWithdrawsController.cs" />
     <Compile Include="Controllers\AffiliateAccountsController.cs" />
+    <Compile Include="Controllers\AffiliateBankAccountsController.cs" />
     <Compile Include="Controllers\AffiliateBannersController.cs" />
     <Compile Include="Controllers\AffiliatesBannersController.cs" />
     <Compile Include="Controllers\AffiliatesController.cs" />

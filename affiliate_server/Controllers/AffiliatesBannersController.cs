@@ -13,7 +13,7 @@ using affiliate_server.Models;
 
 namespace affiliate_server.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+     
     public class AffiliatesBannersController : ApiController
     {
         private AffiliateDBEntities db = new AffiliateDBEntities();

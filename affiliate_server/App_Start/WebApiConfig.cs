@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace affiliate_server
 {
     public static class WebApiConfig
     {
-        public static void Register(HttpConfiguration config)
-        {
-            // Web API configuration and services
-            config.EnableCors();
+        public static void Register(HttpConfiguration config) { 
 
             // Web API routes
             config.MapHttpAttributeRoutes();
@@ -20,6 +18,9 @@ namespace affiliate_server
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            var cors = new EnableCorsAttribute("http://localhost:4200", "*", "*");
+            config.EnableCors(cors);
         }
     }
 }
