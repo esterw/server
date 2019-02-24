@@ -83,6 +83,7 @@ namespace affiliate_server.Controllers
             }
 
             AffiliateTicket at = db.AffiliateTickets.Where(item => item.ID == affiliateTicketContent.TicketID).FirstOrDefault();
+            //עדכון תאריך תגובה אחרון לתווית בה ההודעה נמצאת
             at.LastResponse = DateTime.Now;
             db.Entry(at).State = EntityState.Modified;
             db.AffiliateTicketContents.Add(affiliateTicketContent);

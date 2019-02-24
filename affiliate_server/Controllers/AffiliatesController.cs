@@ -96,6 +96,7 @@ namespace affiliate_server.Controllers
             {
                 return BadRequest(ModelState);
             }
+
             AffiliatesCommission afc = new AffiliatesCommission();
             afc.CostPerLead = 10;
             afc.IsActive = true;

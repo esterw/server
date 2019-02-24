@@ -72,21 +72,6 @@ namespace affiliate_server.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/AffiliatesBanners
-        [ResponseType(typeof(AffiliatesBanner))]
-        public IHttpActionResult PostAffiliatesBanner(AffiliatesBanner affiliatesBanner)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            db.AffiliatesBanners.Add(affiliatesBanner);
-            db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = affiliatesBanner.ID }, affiliatesBanner);
-        }
-
         // DELETE: api/AffiliatesBanners/5
         [ResponseType(typeof(AffiliatesBanner))]
         public IHttpActionResult DeleteAffiliatesBanner(int id)
@@ -101,6 +86,21 @@ namespace affiliate_server.Controllers
             db.SaveChanges();
 
             return Ok(affiliatesBanner);
+        }
+
+        // POST: api/AffiliatesBanners
+        [ResponseType(typeof(AffiliatesBanner))]
+        public IHttpActionResult PostAffiliatesBanner(AffiliatesBanner affiliatesBanner)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            db.AffiliatesBanners.Add(affiliatesBanner);
+            db.SaveChanges();
+
+            return CreatedAtRoute("DefaultApi", new { id = affiliatesBanner.ID }, affiliatesBanner);
         }
 
         protected override void Dispose(bool disposing)

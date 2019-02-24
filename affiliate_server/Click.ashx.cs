@@ -23,42 +23,55 @@ namespace Affiliates.Server
 
        // var urlReferrer = context.Request.UrlReferrer;
             HttpResponse r = context.Response;
+            
             string bannerID = context.Request.QueryString["Banner"];
             string affiliateID = context.Request.QueryString["Aff"];
+
+            // בדיקה שהבקשה אכן מכילה את הנתונים הנדרשים דדי להחזיר את הקובץ הנדרש
             if (bannerID != string.Empty && affiliateID != string.Empty)
             {
                 int affID = Convert.ToInt32(affiliateID);
                 int bannrID = Convert.ToInt32(bannerID);
+
+                // מציאת השותף האחראי על הקישור
                 Affiliate aff = db.Affiliates.Where(x => x.ID == affID).FirstOrDefault();
 
                 try
                 {
-                    AffiliatesBanner ab = db.AffiliatesBanners.Where(x => (x.AffiliateID == affID) && (x.BannerID == bannrID)).FirstOrDefault<AffiliatesBanner>();
+                    // עדכון קליקים לבאנר של השותף
+                    AffiliatesBanner ab = db.AffiliatesBanners.Where(x => 
+                    (x.AffiliateID == affID) && (x.BannerID == bannrID)).FirstOrDefault<AffiliatesBanner>();
                     if (ab.Clicks == null)
                         ab.Clicks = 1;
                     else
                         ab.Clicks  = ab.Clicks+ 1;
-                  //  ab.SummaryDate = DateTime.Now;
                     db.Entry(ab).State = EntityState.Modified;
                  
                 }
                 catch
                 {
+                    // אם נפל - זאת רומרת שעדיין לא קיימים קליקים לבאנר הנוכחי
+                    // אז נוצר עבור השותף שיוך לבאנר עם הקליק
                     AffiliatesBanner ab = new AffiliatesBanner();
                     ab.AffiliateID = affID;
                     ab.BannerID = bannrID;
                     ab.Clicks = 1;
-                  //  ab.SummaryDate = DateTime.Now;
                     db.AffiliatesBanners.Add(ab);
                 }
                 try
                 {
+                    // השמת התאריך של היום נוכחי
                     DateTime dt = DateTime.Now.Date;
-                    AffiliateRevenueReport arr = db.AffiliateRevenueReports.Where(x => x.AffiliateID == affID && x.AffiliateDate == dt).FirstOrDefault<AffiliateRevenueReport>();
+
+                    // איתור דו"ח באנרים נוספים שקיימים בתאריך זה
+                    AffiliateRevenueReport arr = db.AffiliateRevenueReports.Where(x => 
+                    x.AffiliateID == affID && x.AffiliateDate == dt).FirstOrDefault<AffiliateRevenueReport>();
+                    // עדכון מס המבקרים לדו"ח
                     if (arr.Visits == null)
                         arr.Visits = 1;
                     else
                         arr.Visits = arr.Visits + 1;
+                    //  עדכון רווח עבור הקליק ע"פ הסכום שהוקצה לו ע"י מנהלי האתר
                     if (arr.Profit == null)
                         arr.Profit = aff.AffiliatesCommissions.FirstOrDefault().CostPerLead;
                     else
@@ -68,6 +81,8 @@ namespace Affiliates.Server
                 }
                 catch
                 {
+                    // אם לא נמצא דו"ח על התאריך של היום הנוכחי
+                    // אז יוצר דו"ח עם התאריך של היום הנוכחי
                     AffiliateRevenueReport arr = new AffiliateRevenueReport();
                     arr.AffiliateID = affID;
                     arr.AffiliateDate = DateTime.Now.Date;
@@ -75,6 +90,10 @@ namespace Affiliates.Server
                     arr.Profit = aff.AffiliatesCommissions.FirstOrDefault().CostPerLead;
                     db.AffiliateRevenueReports.Add(arr);
                 }
+
+                //-הוספת נתוני הקליק ל
+                //Datebase
+                // תאריך ומאיזה אתר הגיע
                 AffiliateBannerClick abc = new AffiliateBannerClick();
                 abc.AffiliateID = affID;
                 abc.BannerID = bannrID;
@@ -84,8 +103,12 @@ namespace Affiliates.Server
                     abc.UrlReferrer = "Direct Link";
                 abc.ClickDate = DateTime.Now;
                 db.AffiliateBannerClicks.Add(abc);
+
                 try
                 {
+
+                    // נסיון לשמור את הנתונים ב-
+                    //database
                     if(aff.AffiliatesCommissions.FirstOrDefault().CostPerLead != null)
                     {
                         aff.Balance += aff.AffiliatesCommissions.FirstOrDefault().CostPerLead;
@@ -103,12 +126,13 @@ namespace Affiliates.Server
                     db.SaveChanges();
                 }
                 catch (DbUpdateConcurrencyException)
-                {
+                { // אם לא הצליח לשמור את הנתונים יוצא ולא מחזיר כלום ללקוח
 
                     throw;
                 }
             }
 
+            // אם הצליח  לשמור את הנתונים - מעביר את המבקש לאתר אותו השותף מפרסם
             r.Redirect("http://localhost:4200");
         }
 
